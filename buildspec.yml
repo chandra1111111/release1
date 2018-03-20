@@ -1,0 +1,19 @@
+version 0.1
+
+
+
+phases:
+
+  build:
+commands:
+
+
+      -echo build complte on date
+      -mvn package
+
+
+artifacts:
+files:
+
+
+   - "**/*"
