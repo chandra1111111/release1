@@ -3,6 +3,8 @@ version: 0.2
 env:
   variables:
     JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
+  parameter-store:
+    LOGIN_PASSWORD: "dockerLoginPassword"
 
 phases:
   install:
@@ -13,6 +15,7 @@ phases:
   pre_build:
     commands:
       - echo Entered the pre_build phase...
+      - docker login –u User –p $LOGIN_PASSWORD
   build:
     commands:
       - echo Entered the build phase...
@@ -24,8 +27,9 @@ phases:
       - echo Build completed on `date`
 artifacts:
   files:
-    - target/mvn.jar
+    - target/messageUtil-1.0.jar
   discard-paths: yes
 cache:
   paths:
     - '/root/.m2/**/*'
+
