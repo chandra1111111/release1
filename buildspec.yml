@@ -13,20 +13,17 @@ phases:
   pre_build:
     commands:
       - echo Entered the pre_build phase...
-      - mvn archetype:generate
   build:
     commands:
       - echo Entered the build phase...
       - echo Build started on `date`
-      - mvn install
   post_build:
     commands:
       - echo Entered the post_build phase...
       - echo Build completed on `date`
 artifacts:
   files:
-    - target/messageUtil-1.0.jar
-  discard-paths: yes
+  discard-paths: false
 cache:
   paths:
     - '/root/.m2/**/*'
